@@ -27,40 +27,40 @@ export default function Home() {
             {/* Hero Content */}
             <div className="space-y-6 lg:space-y-8">
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-bold text-medical-blue leading-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-montserrat font-bold text-medical-blue leading-tight">
                   Premium Dental Care 
                   <span className="text-medical-teal block">Delivered to Your Doorstep</span>
                 </h1>
-                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
+                <p className="text-base lg:text-xl text-gray-600 leading-relaxed">
                   Skip the traffic, eliminate the stress. Our mobile dental clinic brings world-class dental care directly to your home or office in Lagos.
                 </p>
               </div>
               
               {/* Key Benefits */}
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center space-x-2 bg-white rounded-lg px-4 py-2 shadow-sm">
-                  <i className="fas fa-home text-medical-teal"></i>
-                  <span className="text-sm font-medium">Home Visits</span>
+              <div className="flex flex-wrap gap-3 sm:gap-4">
+                <div className="flex items-center space-x-2 bg-white rounded-lg px-3 py-2 shadow-sm">
+                  <i className="fas fa-home text-medical-teal text-sm"></i>
+                  <span className="text-xs sm:text-sm font-medium">Home Visits</span>
                 </div>
-                <div className="flex items-center space-x-2 bg-white rounded-lg px-4 py-2 shadow-sm">
-                  <i className="fas fa-building text-medical-teal"></i>
-                  <span className="text-sm font-medium">Office Visits</span>
+                <div className="flex items-center space-x-2 bg-white rounded-lg px-3 py-2 shadow-sm">
+                  <i className="fas fa-building text-medical-teal text-sm"></i>
+                  <span className="text-xs sm:text-sm font-medium">Office Visits</span>
                 </div>
-                <div className="flex items-center space-x-2 bg-white rounded-lg px-4 py-2 shadow-sm">
-                  <i className="fas fa-video text-medical-teal"></i>
-                  <span className="text-sm font-medium">Virtual Consults</span>
+                <div className="flex items-center space-x-2 bg-white rounded-lg px-3 py-2 shadow-sm">
+                  <i className="fas fa-video text-medical-teal text-sm"></i>
+                  <span className="text-xs sm:text-sm font-medium">Virtual Consults</span>
                 </div>
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/booking">
-                  <Button className="bg-medical-blue text-white px-8 py-4 rounded-lg font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-lg">
+                  <Button className="w-full sm:w-auto bg-medical-blue text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-montserrat font-semibold text-base sm:text-lg hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105 shadow-lg">
                     Book Appointment
                   </Button>
                 </Link>
                 <Link href="/services/virtual-consultations">
-                  <Button variant="outline" className="border-2 border-medical-teal text-medical-teal px-8 py-4 rounded-lg font-montserrat font-semibold text-lg hover:bg-medical-teal hover:text-white transition-all duration-200">
+                  <Button variant="outline" className="w-full sm:w-auto border-2 border-medical-teal text-medical-teal px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-montserrat font-semibold text-base sm:text-lg hover:bg-medical-teal hover:text-white transition-all duration-200">
                     Virtual Consultation
                   </Button>
                 </Link>
