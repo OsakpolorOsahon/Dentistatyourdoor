@@ -1,0 +1,601 @@
+// server/index.ts
+import express2 from "express";
+
+// server/routes.ts
+import { createServer } from "http";
+
+// server/storage.ts
+import { randomUUID } from "crypto";
+var MemStorage = class {
+  users = /* @__PURE__ */ new Map();
+  appointments = /* @__PURE__ */ new Map();
+  services = /* @__PURE__ */ new Map();
+  testimonials = /* @__PURE__ */ new Map();
+  galleryItems = /* @__PURE__ */ new Map();
+  contacts = /* @__PURE__ */ new Map();
+  constructor() {
+    this.seedData();
+  }
+  seedData() {
+    const services2 = [
+      {
+        name: "Preventive Care",
+        slug: "preventive-care",
+        description: "Regular cleanings, scaling, polishing, and checkups to maintain optimal oral health and prevent dental issues.",
+        category: "preventive",
+        basePrice: "25000",
+        duration: "60 minutes",
+        features: ["Deep cleaning and scaling", "Oral health assessments", "Fluoride treatments", "Dental x-rays"],
+        isActive: true
+      },
+      {
+        name: "Cosmetic Dentistry",
+        slug: "cosmetic-dentistry",
+        description: "Transform your smile with teeth whitening, veneers, and Hollywood smile makeovers for confidence-boosting results.",
+        category: "cosmetic",
+        basePrice: "80000",
+        duration: "90 minutes",
+        features: ["Professional teeth whitening", "Porcelain veneers", "Smile makeovers", "Composite bonding"],
+        isActive: true
+      },
+      {
+        name: "Restorative Dentistry",
+        slug: "restorative-dentistry",
+        description: "Complete restoration solutions including fillings, crowns, bridges, and implants to restore function and appearance.",
+        category: "restorative",
+        basePrice: "60000",
+        duration: "120 minutes",
+        features: ["Dental fillings and root canals", "Crowns and bridges", "Dental implants", "Tooth extractions"],
+        isActive: true
+      },
+      {
+        name: "Pediatric Dentistry",
+        slug: "pediatric-dentistry",
+        description: "Gentle, child-friendly dental care using our Tell-Show-Do approach to ensure comfort and positive experiences.",
+        category: "pediatric",
+        basePrice: "20000",
+        duration: "45 minutes",
+        features: ["Child-friendly examinations", "Preventive care for kids", "Comfort-focused approach", "Parent education"],
+        isActive: true
+      },
+      {
+        name: "Orthodontics",
+        slug: "orthodontics",
+        description: "Invisible aligners and modern orthodontic solutions for straight, perfectly aligned teeth without traditional braces.",
+        category: "orthodontic",
+        basePrice: "150000",
+        duration: "30 minutes",
+        features: ["Clear invisible aligners", "Teeth alignment correction", "Bite adjustment therapy", "Progress monitoring"],
+        isActive: true
+      },
+      {
+        name: "Virtual Consultations",
+        slug: "virtual-consultations",
+        description: "Convenient online consultations for treatment planning, follow-ups, and dental health advice from anywhere.",
+        category: "virtual",
+        basePrice: "10000",
+        duration: "30 minutes",
+        features: ["Remote consultations", "Treatment planning", "Follow-up appointments", "Digital prescriptions"],
+        isActive: true
+      }
+    ];
+    services2.forEach((service) => {
+      const id = randomUUID();
+      this.services.set(id, { ...service, id });
+    });
+    const testimonials2 = [
+      {
+        name: "Adaeze Okwu",
+        location: "HR Manager, Ikoyi",
+        rating: "5.0",
+        content: "Dr. Yemisi came to our office in VI and gave the entire team dental checkups. It was so convenient and professional. No more struggling with Lagos traffic to get to a dental clinic!",
+        service: "Preventive Care",
+        isVisible: true
+      },
+      {
+        name: "Funmi Adeleke",
+        location: "Bride, Lekki",
+        rating: "5.0",
+        content: "The bridal teeth whitening package was perfect! Dr. Yemisi made my smile camera-ready for my wedding. She even came to my home for the treatment. Highly recommend!",
+        service: "Cosmetic Dentistry",
+        isVisible: true
+      },
+      {
+        name: "Chike Okafor",
+        location: "Son of Patient, Festac",
+        rating: "5.0",
+        content: "My elderly mother couldn't travel to a clinic anymore. The home visit service was a godsend. Professional, gentle, and caring treatment right in our living room.",
+        service: "Preventive Care",
+        isVisible: true
+      }
+    ];
+    testimonials2.forEach((testimonial) => {
+      const id = randomUUID();
+      this.testimonials.set(id, { ...testimonial, id, createdAt: /* @__PURE__ */ new Date() });
+    });
+    const galleryItems2 = [
+      {
+        title: "Professional Whitening",
+        category: "whitening",
+        beforeImage: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400",
+        afterImage: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400",
+        description: "8 shades whiter in just 3 sessions with our advanced whitening system.",
+        treatmentType: "Whitening",
+        duration: "3 Sessions",
+        isVisible: true
+      },
+      {
+        title: "Complete Makeover",
+        category: "veneers",
+        beforeImage: "https://pixabay.com/get/g3ca954fbceacf2297e09ae62fd2def23b3daa1af93cbe459d7c4844d873a125fcb5f46dbe60e05258648c8701daa8ca9e557f4f576df507621349e56bd270b3b_1280.jpg",
+        afterImage: "https://pixabay.com/get/g3ca954fbceacf2297e09ae62fd2def23b3daa1af93cbe459d7c4844d873a125fcb5f46dbe60e05258648c8701daa8ca9e557f4f576df507621349e56bd270b3b_1280.jpg",
+        description: "Porcelain veneers created a perfect Hollywood smile for this bride-to-be.",
+        treatmentType: "Veneers",
+        duration: "Hollywood Smile",
+        isVisible: true
+      },
+      {
+        title: "Tooth Restoration",
+        category: "restoration",
+        beforeImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+        afterImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+        description: "Complete restoration of damaged teeth with natural-looking crowns.",
+        treatmentType: "Restoration",
+        duration: "Crown & Bridge",
+        isVisible: true
+      }
+    ];
+    galleryItems2.forEach((item) => {
+      const id = randomUUID();
+      this.galleryItems.set(id, { ...item, id });
+    });
+  }
+  // Users
+  async getUser(id) {
+    return this.users.get(id);
+  }
+  async getUserByUsername(username) {
+    return Array.from(this.users.values()).find((user) => user.username === username);
+  }
+  async createUser(insertUser) {
+    const id = randomUUID();
+    const user = { ...insertUser, id };
+    this.users.set(id, user);
+    return user;
+  }
+  // Appointments
+  async getAppointments() {
+    return Array.from(this.appointments.values());
+  }
+  async getAppointment(id) {
+    return this.appointments.get(id);
+  }
+  async createAppointment(insertAppointment) {
+    const id = randomUUID();
+    const appointment = {
+      ...insertAppointment,
+      id,
+      createdAt: /* @__PURE__ */ new Date()
+    };
+    this.appointments.set(id, appointment);
+    return appointment;
+  }
+  async updateAppointment(id, updates) {
+    const appointment = this.appointments.get(id);
+    if (!appointment) return void 0;
+    const updated = { ...appointment, ...updates };
+    this.appointments.set(id, updated);
+    return updated;
+  }
+  // Services
+  async getServices() {
+    return Array.from(this.services.values()).filter((service) => service.isActive);
+  }
+  async getService(id) {
+    return this.services.get(id);
+  }
+  async getServiceBySlug(slug) {
+    return Array.from(this.services.values()).find((service) => service.slug === slug);
+  }
+  async createService(insertService) {
+    const id = randomUUID();
+    const service = { ...insertService, id };
+    this.services.set(id, service);
+    return service;
+  }
+  // Testimonials
+  async getTestimonials() {
+    return Array.from(this.testimonials.values());
+  }
+  async getVisibleTestimonials() {
+    return Array.from(this.testimonials.values()).filter((testimonial) => testimonial.isVisible);
+  }
+  async createTestimonial(insertTestimonial) {
+    const id = randomUUID();
+    const testimonial = {
+      ...insertTestimonial,
+      id,
+      createdAt: /* @__PURE__ */ new Date()
+    };
+    this.testimonials.set(id, testimonial);
+    return testimonial;
+  }
+  // Gallery
+  async getGalleryItems() {
+    return Array.from(this.galleryItems.values());
+  }
+  async getVisibleGalleryItems() {
+    return Array.from(this.galleryItems.values()).filter((item) => item.isVisible);
+  }
+  async getGalleryItemsByCategory(category) {
+    return Array.from(this.galleryItems.values()).filter((item) => item.category === category && item.isVisible);
+  }
+  async createGalleryItem(insertItem) {
+    const id = randomUUID();
+    const item = { ...insertItem, id };
+    this.galleryItems.set(id, item);
+    return item;
+  }
+  // Contacts
+  async getContacts() {
+    return Array.from(this.contacts.values());
+  }
+  async createContact(insertContact) {
+    const id = randomUUID();
+    const contact = {
+      ...insertContact,
+      id,
+      createdAt: /* @__PURE__ */ new Date()
+    };
+    this.contacts.set(id, contact);
+    return contact;
+  }
+};
+var storage = new MemStorage();
+
+// shared/schema.ts
+import { sql } from "drizzle-orm";
+import { pgTable, text, varchar, timestamp, decimal, json, boolean } from "drizzle-orm/pg-core";
+import { createInsertSchema } from "drizzle-zod";
+import { z } from "zod";
+var users = pgTable("users", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  username: text("username").notNull().unique(),
+  password: text("password").notNull()
+});
+var appointments = pgTable("appointments", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  patientName: text("patient_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  service: text("service").notNull(),
+  location: text("location").notNull(),
+  address: text("address"),
+  appointmentDate: text("appointment_date").notNull(),
+  appointmentTime: text("appointment_time").notNull(),
+  notes: text("notes"),
+  status: text("status").notNull().default("pending"),
+  totalAmount: decimal("total_amount", { precision: 10, scale: 2 }),
+  paymentStatus: text("payment_status").notNull().default("pending"),
+  createdAt: timestamp("created_at").defaultNow()
+});
+var services = pgTable("services", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  slug: text("slug").notNull().unique(),
+  description: text("description").notNull(),
+  category: text("category").notNull(),
+  basePrice: decimal("base_price", { precision: 10, scale: 2 }),
+  duration: text("duration"),
+  features: json("features").$type(),
+  isActive: boolean("is_active").default(true)
+});
+var testimonials = pgTable("testimonials", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: text("name").notNull(),
+  location: text("location").notNull(),
+  rating: decimal("rating", { precision: 2, scale: 1 }),
+  content: text("content").notNull(),
+  service: text("service"),
+  isVisible: boolean("is_visible").default(true),
+  createdAt: timestamp("created_at").defaultNow()
+});
+var galleryItems = pgTable("gallery_items", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  category: text("category").notNull(),
+  beforeImage: text("before_image"),
+  afterImage: text("after_image"),
+  description: text("description"),
+  treatmentType: text("treatment_type"),
+  duration: text("duration"),
+  isVisible: boolean("is_visible").default(true)
+});
+var contacts = pgTable("contacts", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  location: text("location").notNull(),
+  message: text("message").notNull(),
+  status: text("status").notNull().default("new"),
+  createdAt: timestamp("created_at").defaultNow()
+});
+var insertUserSchema = createInsertSchema(users).pick({
+  username: true,
+  password: true
+});
+var insertAppointmentSchema = createInsertSchema(appointments).omit({
+  id: true,
+  createdAt: true
+}).extend({
+  patientName: z.string().min(2, "Patient name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  service: z.string().min(1, "Service is required"),
+  location: z.string().min(1, "Location is required"),
+  appointmentDate: z.string().min(1, "Appointment date is required"),
+  appointmentTime: z.string().min(1, "Appointment time is required")
+});
+var insertServiceSchema = createInsertSchema(services).omit({
+  id: true
+});
+var insertTestimonialSchema = createInsertSchema(testimonials).omit({
+  id: true,
+  createdAt: true
+});
+var insertGalleryItemSchema = createInsertSchema(galleryItems).omit({
+  id: true
+});
+var insertContactSchema = createInsertSchema(contacts).omit({
+  id: true,
+  createdAt: true
+}).extend({
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number must be at least 10 digits"),
+  location: z.string().min(1, "Location is required"),
+  message: z.string().min(10, "Message must be at least 10 characters")
+});
+
+// server/routes.ts
+import { z as z2 } from "zod";
+async function registerRoutes(app2) {
+  app2.get("/api/services", async (req, res) => {
+    try {
+      const services2 = await storage.getServices();
+      res.json(services2);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch services" });
+    }
+  });
+  app2.get("/api/services/:slug", async (req, res) => {
+    try {
+      const { slug } = req.params;
+      const service = await storage.getServiceBySlug(slug);
+      if (!service) {
+        return res.status(404).json({ error: "Service not found" });
+      }
+      res.json(service);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch service" });
+    }
+  });
+  app2.get("/api/appointments", async (req, res) => {
+    try {
+      const appointments2 = await storage.getAppointments();
+      res.json(appointments2);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch appointments" });
+    }
+  });
+  app2.post("/api/appointments", async (req, res) => {
+    try {
+      const validatedData = insertAppointmentSchema.parse(req.body);
+      const appointment = await storage.createAppointment(validatedData);
+      res.status(201).json(appointment);
+    } catch (error) {
+      if (error instanceof z2.ZodError) {
+        return res.status(400).json({ error: "Validation failed", details: error.errors });
+      }
+      res.status(500).json({ error: "Failed to create appointment" });
+    }
+  });
+  app2.get("/api/testimonials", async (req, res) => {
+    try {
+      const testimonials2 = await storage.getVisibleTestimonials();
+      res.json(testimonials2);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch testimonials" });
+    }
+  });
+  app2.get("/api/gallery", async (req, res) => {
+    try {
+      const { category } = req.query;
+      let items;
+      if (category && typeof category === "string") {
+        items = await storage.getGalleryItemsByCategory(category);
+      } else {
+        items = await storage.getVisibleGalleryItems();
+      }
+      res.json(items);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch gallery items" });
+    }
+  });
+  app2.post("/api/contact", async (req, res) => {
+    try {
+      const validatedData = insertContactSchema.parse(req.body);
+      const contact = await storage.createContact(validatedData);
+      res.status(201).json(contact);
+    } catch (error) {
+      if (error instanceof z2.ZodError) {
+        return res.status(400).json({ error: "Validation failed", details: error.errors });
+      }
+      res.status(500).json({ error: "Failed to submit contact form" });
+    }
+  });
+  const httpServer = createServer(app2);
+  return httpServer;
+}
+
+// server/vite.ts
+import express from "express";
+import fs from "fs";
+import path2 from "path";
+import { createServer as createViteServer, createLogger } from "vite";
+
+// vite.config.ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+var vite_config_default = defineConfig({
+  plugins: [
+    react(),
+    runtimeErrorOverlay(),
+    ...process.env.NODE_ENV !== "production" && process.env.REPL_ID !== void 0 ? [
+      await import("@replit/vite-plugin-cartographer").then(
+        (m) => m.cartographer()
+      )
+    ] : []
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets")
+    }
+  },
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    emptyOutDir: true
+  },
+  server: {
+    fs: {
+      strict: true,
+      deny: ["**/.*"]
+    }
+  }
+});
+
+// server/vite.ts
+import { nanoid } from "nanoid";
+var viteLogger = createLogger();
+function log(message, source = "express") {
+  const formattedTime = (/* @__PURE__ */ new Date()).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
+  console.log(`${formattedTime} [${source}] ${message}`);
+}
+async function setupVite(app2, server) {
+  const serverOptions = {
+    middlewareMode: true,
+    hmr: { server },
+    allowedHosts: true
+  };
+  const vite = await createViteServer({
+    ...vite_config_default,
+    configFile: false,
+    customLogger: {
+      ...viteLogger,
+      error: (msg, options) => {
+        viteLogger.error(msg, options);
+        process.exit(1);
+      }
+    },
+    server: serverOptions,
+    appType: "custom"
+  });
+  app2.use(vite.middlewares);
+  app2.use("*", async (req, res, next) => {
+    const url = req.originalUrl;
+    try {
+      const clientTemplate = path2.resolve(
+        import.meta.dirname,
+        "..",
+        "client",
+        "index.html"
+      );
+      let template = await fs.promises.readFile(clientTemplate, "utf-8");
+      template = template.replace(
+        `src="/src/main.tsx"`,
+        `src="/src/main.tsx?v=${nanoid()}"`
+      );
+      const page = await vite.transformIndexHtml(url, template);
+      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+    } catch (e) {
+      vite.ssrFixStacktrace(e);
+      next(e);
+    }
+  });
+}
+function serveStatic(app2) {
+  const distPath = path2.resolve(import.meta.dirname, "public");
+  if (!fs.existsSync(distPath)) {
+    throw new Error(
+      `Could not find the build directory: ${distPath}, make sure to build the client first`
+    );
+  }
+  app2.use(express.static(distPath));
+  app2.use("*", (_req, res) => {
+    res.sendFile(path2.resolve(distPath, "index.html"));
+  });
+}
+
+// server/index.ts
+var app = express2();
+app.use(express2.json());
+app.use(express2.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  const start = Date.now();
+  const path3 = req.path;
+  let capturedJsonResponse = void 0;
+  const originalResJson = res.json;
+  res.json = function(bodyJson, ...args) {
+    capturedJsonResponse = bodyJson;
+    return originalResJson.apply(res, [bodyJson, ...args]);
+  };
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+    if (path3.startsWith("/api")) {
+      let logLine = `${req.method} ${path3} ${res.statusCode} in ${duration}ms`;
+      if (capturedJsonResponse) {
+        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
+      }
+      if (logLine.length > 80) {
+        logLine = logLine.slice(0, 79) + "\u2026";
+      }
+      log(logLine);
+    }
+  });
+  next();
+});
+(async () => {
+  const server = await registerRoutes(app);
+  app.use((err, _req, res, _next) => {
+    const status = err.status || err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+    res.status(status).json({ message });
+    throw err;
+  });
+  if (app.get("env") === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
+  const port = parseInt(process.env.PORT || "5000", 10);
+  server.listen({
+    port,
+    host: "0.0.0.0",
+    reusePort: true
+  }, () => {
+    log(`serving on port ${port}`);
+  });
+})();
