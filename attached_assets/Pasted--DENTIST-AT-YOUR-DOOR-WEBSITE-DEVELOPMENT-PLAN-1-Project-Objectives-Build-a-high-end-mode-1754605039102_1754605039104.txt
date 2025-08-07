@@ -1,0 +1,413 @@
+‎DENTIST AT YOUR DOOR — WEBSITE DEVELOPMENT PLAN
+‎
+‎1️⃣ Project Objectives
+‎
+‎Build a high-end, modern, luxous website that
+‎
+‎Conveys trust and credibility
+‎
+‎Highlights the mobile clinic innovation
+‎
+‎Drives appointment bookings (in-home, in-office, or in-clinic)
+‎
+‎Showcases services and promotions
+‎
+‎Provides virtual consultations
+‎
+‎Enhances brand visibility
+‎
+‎Supports multi-device experiences
+‎
+‎2️⃣ Target Audience
+‎
+‎Busy professionals in Lagos (Lekki, Festac, Ikoyi, VI)
+‎
+‎Families with children
+‎
+‎Brides preparing for weddings
+‎
+‎Elderly patients needing in-home care
+‎
+‎Health-conscious individuals seeking premium cosmetic treatments
+‎
+‎3️⃣ Branding Requirements
+‎
+‎Color Palette: Clean, medical, premium feel 
+‎
+‎Primary: White (#FFFFFF)
+‎
+‎Accent: Deep Blue (#002060)
+‎
+‎Secondary: Soft Teal (#66CCCC)
+‎
+‎Neutral: Charcoal Grey (#333333)
+‎
+‎Typography: 
+‎
+‎Headings: Montserrat Bold
+‎
+‎Body: Open Sans Regular
+‎
+‎Imagery: 
+‎
+‎High-resolution, bright dental imagery
+‎
+‎Photos of mobile clinic vans, dentists in action
+‎
+‎Smiling patients
+‎
+‎Tone of Voice: 
+‎
+‎Warm, professional, reassuring
+‎
+‎Avoid clinical coldness
+‎
+‎4️⃣ Site Architecture & Sitemap
+‎
+‎Home
+‎
+‎About Us 
+‎
+‎Our Story
+‎
+‎Founder Bio
+‎
+‎Our Approach
+‎
+‎Services 
+‎
+‎Preventive Care
+‎
+‎Restorative Dentistry
+‎
+‎Cosmetic Dentistry
+‎
+‎Orthodontics
+‎
+‎Maxillofacial Surgery
+‎
+‎Pediatric Dentistry
+‎
+‎Virtual Consultations
+‎
+‎Book an Appointment 
+‎
+‎Choose Service
+‎
+‎Choose Location (Home, Office, Lekki, Festac)
+‎
+‎Date & Time
+‎
+‎Patient Details
+‎
+‎Payment Integration
+‎
+‎Smile Gallery 
+‎
+‎Before/After Cases
+‎
+‎Testimonials
+‎
+‎Special Offers 
+‎
+‎Promotions (e.g., bridal packages, family discounts)
+‎
+‎FAQs
+‎
+‎Blog & Resources 
+‎
+‎Oral health guides
+‎
+‎Patient stories
+‎
+‎Contact Us 
+‎
+‎Contact Info
+‎
+‎Interactive Map
+‎
+‎Request Callback
+‎
+‎Patient Portal 
+‎
+‎Secure login for appointment history, treatment plans, invoices
+‎
+‎Privacy Policy
+‎
+‎Terms of Service
+‎
+‎5️⃣ Functional Requirements
+‎
+‎✅ Booking System
+‎
+‎Multi-step booking wizard: 
+‎
+‎Select service
+‎
+‎Select location
+‎
+‎Choose date & time (real-time availability)
+‎
+‎Enter details
+‎
+‎Confirm & pay
+‎
+‎SMS & email confirmations
+‎
+‎Admin dashboard for staff to manage bookings
+‎
+‎Auto reminders (SMS & Email)
+‎
+‎Payment options: Card, Bank Transfer, Paystack
+‎
+‎✅ Virtual Consultation Integration
+‎
+‎Video call scheduling
+‎
+‎Integration with Zoom or Doxy.me
+‎
+‎Pre-consultation form submission
+‎
+‎Secure payment gateway
+‎
+‎✅ Blog / Resource Center
+‎
+‎Easy-to-update CMS
+‎
+‎SEO-friendly blog posts
+‎
+‎Categorization (Preventive Tips, Cosmetic, Pediatric, etc.)
+‎
+‎✅ Patient Portal
+‎
+‎Secure login
+‎
+‎View treatment plans
+‎
+‎Download invoices
+‎
+‎Reschedule appointments
+‎
+‎✅ Live Chat & WhatsApp Link
+‎
+‎Live chat widget (e.g., Tidio, Intercom)
+‎
+‎Prominent WhatsApp button for instant contact
+‎
+‎✅ SEO & Analytics
+‎
+‎SEO-optimized URLs, metadata, and schema
+‎
+‎Google Analytics & Facebook Pixel
+‎
+‎Sitemap.xml and robots.txt
+‎
+‎Schema markup for local business and medical services
+‎
+‎6️⃣ Technical Specifications
+‎
+‎FeatureSpecificationPlatformWordPress with Elementor Pro OR Custom React Frontend with Strapi CMSHostingCloud Hosting (Kinsta or Digital Ocean)SSLLet’s Encrypt or Premium SSLBackupDaily automated backupsPerformanceCDN (Cloudflare), image optimization, lazy loadingAccessibilityWCAG 2.1 ComplianceSecurityFirewall, reCAPTCHA, 2FA for admin 
+‎
+‎7️⃣ UX/UI Requirements
+‎
+‎✅ Design Principles
+‎
+‎Minimalist, clean aesthetic
+‎
+‎Large hero images with clear calls to action
+‎
+‎Sticky header with Book Appointment button
+‎
+‎Clear contrast and legible typography
+‎
+‎Micro-interactions for hover states
+‎
+‎Subtle animations (fade-in, slide-up)
+‎
+‎✅ Mobile Responsiveness
+‎
+‎Priority layout for mobile
+‎
+‎Sticky WhatsApp and Call buttons on mobile
+‎
+‎✅ Accessibility
+‎
+‎Alt text on all images
+‎
+‎Keyboard navigation
+‎
+‎ARIA labels
+‎
+‎8️⃣ Content Plan
+‎
+‎Home Page:
+‎
+‎Hero: “Premium Dental Care Delivered to Your Doorstep”
+‎
+‎Quick Booking Button
+‎
+‎Services Overview
+‎
+‎Smile Gallery preview
+‎
+‎Testimonials slider
+‎
+‎Special Offers banner
+‎
+‎Contact Info
+‎
+‎About Us:
+‎
+‎Founder story and mission
+‎
+‎Photos of the team
+‎
+‎Awards & Recognition
+‎
+‎Service Pages:
+‎
+‎Description, benefits, FAQs
+‎
+‎Pricing transparency or “Get Quote” CTA
+‎
+‎Smile Gallery:
+‎
+‎Before/After filters by treatment
+‎
+‎Testimonials
+‎
+‎Special Offers:
+‎
+‎Visual banners
+‎
+‎Seasonal promos
+‎
+‎Blog:
+‎
+‎Educational content
+‎
+‎Shareable on social media
+‎
+‎Contact:
+‎
+‎Embedded Google Map (Lekki & Festac)
+‎
+‎Form with captcha
+‎
+‎Phone & email links
+‎
+‎9️⃣ Integrations
+‎
+‎Booking & Payments: Amelia Booking, WooCommerce, or custom integration with Paystack
+‎
+‎Live Chat: Tidio or WhatsApp API
+‎
+‎CRM: Zoho CRM or HubSpot
+‎
+‎Email Marketing: Mailchimp or Brevo
+‎
+‎Analytics: Google Analytics, Facebook Pixel
+‎
+‎1️⃣3️⃣ Success Metrics
+‎
+‎Site speed <2 seconds load time
+‎
+‎Bounce rate under 40%
+‎
+‎50% increase in online bookings within 6 months
+‎
+‎Improved ranking for keywords: “Mobile Dentist Lagos”, “Cosmetic Dentistry Lagos”
+‎
+‎90% mobile usability score (Google)
+‎
+‎BUSINESS INFORMATION YOU MIGHT NEED.
+‎
+‎
+‎Dentist At Your Door – Full Business Profile
+‎
+‎Business Overview & Founder
+‎
+‎Name: Dentist At Your Door (also styled “Dentist@yourdoor” or “Dentistatyourdoor”)
+‎
+‎Founder: Dr. Yemisi Akintonwa, BDS
+‎
+‎Founded: 2017
+‎
+‎Concept: A mobile dental clinic in Lagos, Nigeria, providing dental care directly at clients’ homes or offices to reduce missed appointments due to traffic, anxiety, or time constraints. The business also operates physical branches in Lekki and Festac Town.
+‎
+‎Services Offered
+‎Dentist At Your Door provides a wide range of dental care services including:
+‎
+‎Preventive Care: Scaling, polishing, deep cleaning
+‎
+‎Restorative Dentistry: Fillings, root canals, crowns, bridges, dentures, implants
+‎
+‎Cosmetic Dentistry: Teeth whitening, “Hollywood smiles”, veneers, aligners
+‎
+‎Orthodontics: Invisible aligners and alignment correction
+‎
+‎Maxillofacial Surgery: Surgical extractions, jaw-related procedures
+‎
+‎Pediatric Dentistry: Child-friendly dental care using "Tell-Show-Do" techniques
+‎
+‎Virtual Consultations: Remote consultations and treatment planning
+‎
+‎Locations & Contact Details
+‎
+‎Lekki Clinic: 26 Akin Leigh, off Admiralty Way, off Wole Olateju, Lekki Phase 1, Lagos
+‎
+‎Festac Clinic: Amuwo Odofin Local Government Council Complex, Festac Town, Lagos
+‎
+‎Phone: +234 802 909 3223 / +234 802 226 8510
+‎
+‎Email: dentist@dentistatyourdoor.com / reception@dentistatyourdoor.com
+‎
+‎Business Hours: 
+‎
+‎Monday–Friday: 9:00 AM – 5:00 PM
+‎
+‎Saturday: 9:00 AM – 2:00 PM
+‎
+‎Sunday: Closed
+‎
+‎Social Media Handles
+‎
+‎Instagram: @dentistatyourdoor
+‎
+‎Facebook: Dentist At Your Door Mobile Dental Clinic
+‎
+‎Twitter: Not found
+‎
+‎LinkedIn: Not found
+‎
+‎WhatsApp: No official WhatsApp link provided; contact through phone or DM
+‎
+‎Recognition & Media Features
+‎
+‎Featured in BusinessDay Nigeria as a revolutionary healthcare startup
+‎
+‎Promoted on BellaNaija with special holiday/bridal offers
+‎
+‎Received entrepreneurship funding and mentorship from the Tony Elumelu Foundation
+‎
+‎Notable campaigns include: 
+‎
+‎“Book adult treatment, get one child treatment free”
+‎
+‎Family and bridal teeth-whitening promotions
+‎
+‎Why It Stands Out
+‎
+‎Offers on-demand, doorstep dental care
+‎
+‎Combines digital consultations with in-person mobile services
+‎
+‎Supports busy professionals, children, and the elderly
+‎
+‎A model of female-led innovation in Nigerian healthcare
+‎
+‎
+‎
+‎
+‎
+‎
