@@ -2,7 +2,7 @@ import { Link } from "wouter";
 
 export default function Footer() {
   return (
-    <footer className="bg-medical-blue text-white py-16">
+    <footer className="bg-medical-blue dark:bg-gray-900 text-white dark:text-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -10,7 +10,7 @@ export default function Footer() {
             <h3 className="text-xl font-montserrat font-bold">
               Dentist<span className="text-medical-teal">@</span>YourDoor
             </h3>
-            <p className="text-blue-100 text-sm">
+            <p className="text-blue-100 dark:text-gray-300 text-sm">
               Nigeria's premier mobile dental clinic, bringing world-class dental care directly to your doorstep since 2017.
             </p>
             <div className="flex space-x-4">
@@ -42,7 +42,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-montserrat font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2 text-blue-100 text-sm">
+            <ul className="space-y-2 text-blue-100 dark:text-gray-300 text-sm">
               <li><Link href="/services/preventive-care"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Preventive Care</span></Link></li>
               <li><Link href="/services/cosmetic-dentistry"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Cosmetic Dentistry</span></Link></li>
               <li><Link href="/services/restorative-dentistry"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Restorative Dentistry</span></Link></li>
@@ -54,7 +54,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-montserrat font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-blue-100 text-sm">
+            <ul className="space-y-2 text-blue-100 dark:text-gray-300 text-sm">
               <li><Link href="/booking"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Book Appointment</span></Link></li>
               <li><Link href="/gallery"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Smile Gallery</span></Link></li>
               <li><Link href="/special-offers"><span className="hover:text-white transition-colors duration-200 cursor-pointer">Special Offers</span></Link></li>
@@ -65,7 +65,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-montserrat font-semibold mb-4">Contact Us</h4>
-            <div className="space-y-2 text-blue-100 text-sm">
+            <div className="space-y-2 text-blue-100 dark:text-gray-300 text-sm">
               <div>+234 802 909 3223</div>
               <div>+234 802 226 8510</div>
               <div>dentist@dentistatyourdoor.com</div>
