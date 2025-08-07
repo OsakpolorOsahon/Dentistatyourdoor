@@ -21,8 +21,42 @@ export default function Home() {
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+      <section className="min-h-screen bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+        {/* 3D Animated Background Elements */}
+        <div className="absolute inset-0 z-0">
+          {/* Floating Medical Icons */}
+          <div className="floating-icon floating-icon-1">
+            <div className="medical-icon">
+              <i className="fas fa-tooth text-medical-teal/20 text-4xl"></i>
+            </div>
+          </div>
+          <div className="floating-icon floating-icon-2">
+            <div className="medical-icon">
+              <i className="fas fa-stethoscope text-medical-blue/15 text-3xl"></i>
+            </div>
+          </div>
+          <div className="floating-icon floating-icon-3">
+            <div className="medical-icon">
+              <i className="fas fa-heartbeat text-medical-teal/10 text-5xl"></i>
+            </div>
+          </div>
+          <div className="floating-icon floating-icon-4">
+            <div className="medical-icon">
+              <i className="fas fa-shield-alt text-medical-blue/20 text-3xl"></i>
+            </div>
+          </div>
+          
+          {/* Geometric Shapes */}
+          <div className="geometric-shape geometric-shape-1"></div>
+          <div className="geometric-shape geometric-shape-2"></div>
+          <div className="geometric-shape geometric-shape-3"></div>
+          
+          {/* Gradient Orbs */}
+          <div className="gradient-orb gradient-orb-1"></div>
+          <div className="gradient-orb gradient-orb-2"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div className="space-y-6 lg:space-y-8">
