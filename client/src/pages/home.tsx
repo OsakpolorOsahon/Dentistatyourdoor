@@ -27,22 +27,22 @@ export default function Home() {
           {/* Floating Medical Icons */}
           <div className="floating-icon floating-icon-1">
             <div className="medical-icon">
-              <i className="fas fa-tooth text-medical-teal/20 text-4xl"></i>
+              <i className="fas fa-tooth text-medical-teal/60 text-6xl"></i>
             </div>
           </div>
           <div className="floating-icon floating-icon-2">
             <div className="medical-icon">
-              <i className="fas fa-stethoscope text-medical-blue/15 text-3xl"></i>
+              <i className="fas fa-stethoscope text-medical-blue/50 text-5xl"></i>
             </div>
           </div>
           <div className="floating-icon floating-icon-3">
             <div className="medical-icon">
-              <i className="fas fa-heartbeat text-medical-teal/10 text-5xl"></i>
+              <i className="fas fa-heartbeat text-medical-teal/40 text-7xl"></i>
             </div>
           </div>
           <div className="floating-icon floating-icon-4">
             <div className="medical-icon">
-              <i className="fas fa-shield-alt text-medical-blue/20 text-3xl"></i>
+              <i className="fas fa-shield-alt text-medical-blue/60 text-5xl"></i>
             </div>
           </div>
           
@@ -54,6 +54,14 @@ export default function Home() {
           {/* Gradient Orbs */}
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-2"></div>
+          
+          {/* Animated Particles */}
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
+          <div className="particle particle-5"></div>
+          <div className="particle particle-6"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10">

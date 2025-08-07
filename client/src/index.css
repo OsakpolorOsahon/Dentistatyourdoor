@@ -207,7 +207,7 @@
   }
 
   .medical-icon {
-    filter: blur(0.5px);
+    filter: drop-shadow(0 4px 8px rgba(0, 32, 96, 0.3));
     transform-style: preserve-3d;
     animation: pulse-3d 4s ease-in-out infinite;
   }
@@ -215,22 +215,24 @@
   .geometric-shape {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(0, 32, 96, 0.05), rgba(102, 204, 204, 0.08));
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(0, 32, 96, 0.15), rgba(102, 204, 204, 0.20));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(102, 204, 204, 0.30);
+    box-shadow: 0 8px 32px rgba(0, 32, 96, 0.12);
     animation: rotate-3d 25s linear infinite;
   }
 
   .geometric-shape-1 {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     top: 10%;
     right: 20%;
     animation-delay: 0s;
   }
 
   .geometric-shape-2 {
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
     bottom: 25%;
     left: 15%;
     animation-delay: 8s;
@@ -238,8 +240,8 @@
   }
 
   .geometric-shape-3 {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     top: 60%;
     right: 10%;
     animation-delay: 16s;
@@ -254,18 +256,18 @@
   }
 
   .gradient-orb-1 {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 32, 96, 0.1) 0%, transparent 70%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 32, 96, 0.25) 0%, rgba(0, 32, 96, 0.10) 50%, transparent 70%);
     top: 20%;
     left: 5%;
     animation-delay: 0s;
   }
 
   .gradient-orb-2 {
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(102, 204, 204, 0.08) 0%, transparent 70%);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(102, 204, 204, 0.20) 0%, rgba(102, 204, 204, 0.08) 50%, transparent 70%);
     bottom: 30%;
     right: 8%;
     animation-delay: 7s;
@@ -334,6 +336,87 @@
     }
   }
 
+  /* Animated Particles */
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(102, 204, 204, 0.8);
+    border-radius: 50%;
+    animation: float-particle 12s ease-in-out infinite;
+  }
+
+  .particle-1 {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+    background: rgba(0, 32, 96, 0.6);
+  }
+
+  .particle-2 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 2s;
+  }
+
+  .particle-3 {
+    bottom: 35%;
+    left: 25%;
+    animation-delay: 4s;
+    background: rgba(0, 32, 96, 0.7);
+  }
+
+  .particle-4 {
+    top: 60%;
+    left: 50%;
+    animation-delay: 6s;
+  }
+
+  .particle-5 {
+    bottom: 50%;
+    right: 40%;
+    animation-delay: 8s;
+    background: rgba(0, 32, 96, 0.5);
+  }
+
+  .particle-6 {
+    top: 30%;
+    left: 60%;
+    animation-delay: 10s;
+  }
+
+  @keyframes float-particle {
+    0%, 100% { 
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.3;
+    }
+    25% { 
+      transform: translate3d(20px, -30px, 5px) scale(1.5);
+      opacity: 0.8;
+    }
+    50% { 
+      transform: translate3d(-15px, -60px, 10px) scale(2);
+      opacity: 1;
+    }
+    75% { 
+      transform: translate3d(10px, -30px, 5px) scale(1.5);
+      opacity: 0.6;
+    }
+  }
+
+  /* Enhanced Animation Speeds */
+  .floating-icon {
+    animation-duration: 15s; /* Faster animation */
+  }
+
+  .geometric-shape {
+    animation-duration: 20s; /* Faster rotation */
+  }
+
+  .gradient-orb {
+    animation-duration: 10s; /* Faster breathing */
+  }
+
   /* Responsive adjustments for mobile */
   @media (max-width: 768px) {
     .floating-icon {
@@ -341,13 +424,18 @@
     }
     
     .geometric-shape {
-      width: 80px !important;
-      height: 80px !important;
+      width: 120px !important;
+      height: 120px !important;
     }
     
     .gradient-orb {
-      width: 150px !important;
-      height: 150px !important;
+      width: 200px !important;
+      height: 200px !important;
+    }
+
+    .particle {
+      width: 3px;
+      height: 3px;
     }
   }
 }
