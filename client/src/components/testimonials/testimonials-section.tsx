@@ -1,6 +1,9 @@
 import { Testimonial } from "@shared/schema";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { AnimatedCard } from "@/components/ui/animated-card";
+import { motion } from "framer-motion";
 
 interface TestimonialsSectionProps {
   testimonials: Testimonial[];
@@ -30,18 +33,18 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
   return (
     <section className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <AnimatedSection className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-montserrat font-bold text-medical-blue mb-4">
             What Our Patients Say
           </h2>
           <p className="text-lg text-gray-600">
             Real stories from real patients who chose our mobile dental care
           </p>
-        </div>
+        </AnimatedSection>
         
         <div className="grid lg:grid-cols-3 gap-8">
-          {testimonials.slice(0, 3).map((testimonial) => (
-            <div key={testimonial.id} className="bg-gray-50 rounded-xl p-8 relative">
+          {testimonials.slice(0, 3).map((testimonial, index) => (
+            <AnimatedCard key={testimonial.id} className="bg-gray-50 rounded-xl p-8 relative hover:shadow-xl transition-shadow duration-300" delay={index * 0.2} hoverScale={1.05}>
               {/* Star Rating */}
               <div className="flex items-center mb-4">
                 <div className="flex text-yellow-400">
@@ -88,7 +91,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
               <div className="absolute top-4 right-4 text-gray-200">
                 <i className="fas fa-quote-right text-2xl"></i>
               </div>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
 
@@ -96,8 +99,8 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
         {testimonials.length > 3 && (
           <div className="text-center mt-12">
             <div className="grid lg:grid-cols-3 gap-8 mt-8">
-              {testimonials.slice(3, 6).map((testimonial) => (
-                <div key={testimonial.id} className="bg-gray-50 rounded-xl p-8 relative">
+              {testimonials.slice(3, 6).map((testimonial, index) => (
+                <AnimatedCard key={testimonial.id} className="bg-gray-50 rounded-xl p-8 relative hover:shadow-xl transition-shadow duration-300" delay={(index + 3) * 0.2} hoverScale={1.05}>
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       {[...Array(5)].map((_, i) => (
@@ -140,14 +143,14 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                   <div className="absolute top-4 right-4 text-gray-200">
                     <i className="fas fa-quote-right text-2xl"></i>
                   </div>
-                </div>
+                </AnimatedCard>
               ))}
             </div>
           </div>
         )}
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        <AnimatedSection className="text-center mt-16" delay={0.3}>
           <h3 className="text-xl font-montserrat font-semibold text-medical-blue mb-4">
             Ready to Join Our Happy Patients?
           </h3>
@@ -166,7 +169,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
               </Button>
             </Link>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

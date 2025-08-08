@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion } from "framer-motion";
 import logoPath from "@assets/20250807_234819 (1)_1754607259860.jpg";
 
 export default function Header() {
@@ -17,13 +18,19 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b border-gray-100">
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b border-gray-100"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/">
-              <div className="flex items-center space-x-2 lg:space-x-3 cursor-pointer">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/">
+                <div className="flex items-center space-x-2 lg:space-x-3 cursor-pointer">
                 <img 
                   src={logoPath} 
                   alt="Dentist At Your Door Logo" 
@@ -32,24 +39,32 @@ export default function Header() {
                 <h1 className="text-lg lg:text-2xl font-montserrat font-bold text-medical-blue">
                   Dentist<span className="text-medical-teal">@</span>YourDoor
                 </h1>
-              </div>
-            </Link>
+                </div>
+              </Link>
+            </motion.div>
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-8">
+          <motion.nav 
+            className="hidden lg:flex space-x-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <span className={`cursor-pointer transition-colors duration-200 ${
+              <motion.div key={item.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                <Link href={item.href}>
+                  <span className={`cursor-pointer transition-colors duration-200 ${
                   location === item.href 
                     ? "text-medical-blue font-semibold" 
                     : "text-medical-gray hover:text-medical-blue"
                 }`}>
-                  {item.name}
-                </span>
-              </Link>
+                    {item.name}
+                  </span>
+                </Link>
+              </motion.div>
             ))}
-          </nav>
+          </motion.nav>
           
           {/* Mobile Menu Button */}
           <div className="flex items-center">
@@ -99,6 +114,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
