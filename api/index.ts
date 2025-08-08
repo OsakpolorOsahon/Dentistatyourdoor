@@ -92,7 +92,7 @@ class MemStorage {
         name: "Adaeze Okwu",
         location: "HR Manager, Ikoyi",
         rating: "5.0",
-        content: "Dr. Yemisi came to our office in VI and gave the entire team dental checkups. It was so convenient and professional. No more struggling with Lagos traffic to get to a dental clinic!",
+        content: "The Dentist came to our office in VI and gave the entire team dental checkups. It was so convenient and professional. No more struggling with Lagos traffic to get to a dental clinic!",
         service: "Preventive Care",
         isVisible: true,
         createdAt: new Date()
@@ -102,7 +102,7 @@ class MemStorage {
         name: "Funmi Adeleke",
         location: "Bride, Lekki",
         rating: "5.0",
-        content: "The bridal teeth whitening package was perfect! Dr. Yemisi made my smile camera-ready for my wedding. She even came to my home for the treatment. Highly recommend!",
+        content: "The bridal teeth whitening package was perfect! Dr. Yemisi made my smile camera-ready for my wedding. I got my treatment at home. Highly recommend!",
         service: "Cosmetic Dentistry",
         isVisible: true,
         createdAt: new Date()
