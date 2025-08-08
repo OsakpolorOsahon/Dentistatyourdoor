@@ -3,14 +3,14 @@
   "buildCommand": "vite build",
   "outputDirectory": "client/dist",
   "functions": {
-    "api/**/*.ts": {
+    "api/index.ts": {
       "runtime": "@vercel/node@20.x"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.ts"
+      "dest": "/api/index"
     },
     {
       "src": "/(.*)",
