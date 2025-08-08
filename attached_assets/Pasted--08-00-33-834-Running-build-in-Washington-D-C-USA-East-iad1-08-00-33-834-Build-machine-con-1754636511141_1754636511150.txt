@@ -1,0 +1,47 @@
+[08:00:33.834] Running build in Washington, D.C., USA (East) – iad1
+[08:00:33.834] Build machine configuration: 2 cores, 8 GB
+[08:00:33.847] Cloning github.com/OsakpolorOsahon/Dentistatyourdoor (Branch: main, Commit: c1c0613)
+[08:00:33.995] Previous build caches not available
+[08:00:34.137] Cloning completed: 290.000ms
+[08:00:34.190] Found .vercelignore
+[08:00:34.196] Removed 29 ignored files defined in .vercelignore
+[08:00:34.196]   /.git/config
+[08:00:34.196]   /.git/description
+[08:00:34.196]   /.git/FETCH_HEAD
+[08:00:34.196]   /.git/HEAD
+[08:00:34.196]   /.git/hooks/applypatch-msg.sample
+[08:00:34.196]   /.git/hooks/commit-msg.sample
+[08:00:34.196]   /.git/hooks/fsmonitor-watchman.sample
+[08:00:34.196]   /.git/hooks/post-update.sample
+[08:00:34.197]   /.git/hooks/pre-applypatch.sample
+[08:00:34.197]   /.git/hooks/pre-commit.sample
+[08:00:36.582] Running "vercel build"
+[08:00:37.035] Vercel CLI 44.7.3
+[08:00:37.924] Installing dependencies...
+[08:00:43.058] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[08:00:43.081] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[08:00:49.205] 
+[08:00:49.205] added 569 packages in 11s
+[08:00:49.205] 
+[08:00:49.206] 70 packages are looking for funding
+[08:00:49.206]   run `npm fund` for details
+[08:00:49.532] [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+[08:00:49.583] transforming...
+[08:00:50.199] Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
+[08:00:50.200]   npx update-browserslist-db@latest
+[08:00:50.200]   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[08:00:54.492] [32m✓[39m 1836 modules transformed.
+[08:00:54.842] rendering chunks...
+[08:00:54.857] computing gzip size...
+[08:00:54.877] [2m../dist/public/[22m[32mindex.html                                             [39m[1m[2m  1.35 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[08:00:54.878] [2m../dist/public/[22m[2massets/[22m[32m20250807_234819 (1)_1754607259860-YvAFMWhf.jpg  [39m[1m[2m186.17 kB[22m[1m[22m
+[08:00:54.879] [2m../dist/public/[22m[2massets/[22m[35mindex-Dez_972O.css                              [39m[1m[2m 76.36 kB[22m[1m[22m[2m │ gzip:  13.39 kB[22m
+[08:00:54.879] [2m../dist/public/[22m[2massets/[22m[36mindex-o8pnt41c.js                               [39m[1m[33m540.76 kB[39m[22m[2m │ gzip: 156.90 kB[22m
+[08:00:54.879] [32m✓ built in 5.32s[39m
+[08:00:54.879] [33m
+[08:00:54.879] (!) Some chunks are larger than 500 kB after minification. Consider:
+[08:00:54.880] - Using dynamic import() to code-split the application
+[08:00:54.880] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[08:00:54.880] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[08:00:54.920] Error: No Output Directory named "dist" found after the Build completed. You can configure the Output Directory in your Project Settings.
+[08:00:54.920] Learn More: https://vercel.link/missing-public-directory
