@@ -16,10 +16,12 @@ import SpecialOffers from "@/pages/special-offers";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import FloatingWhatsApp from "@/components/common/floating-whatsapp";
+import ScrollToTop from "@/components/common/scroll-to-top";
 
 function Router() {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Header />
       <main className="flex-1">
         <Switch>
