@@ -86,7 +86,10 @@ export default function About() {
               <img 
                 src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=700" 
                 alt="Dr. Yemisi Akintonwa professional portrait in dental clinic" 
-                className="rounded-2xl shadow-2xl w-full" 
+                className="rounded-2xl shadow-2xl w-full"
+                loading="lazy"
+                decoding="async"
+                data-testid="img-doctor-portrait" 
               />
               
               {/* Floating Credentials */}

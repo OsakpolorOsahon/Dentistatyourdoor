@@ -40,13 +40,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/appointments", async (req, res) => {
     try {
+      // Input sanitization
+      if (!req.body || typeof req.body !== 'object') {
+        return res.status(400).json({ error: "Invalid request body" });
+      }
+
       const validatedData = insertAppointmentSchema.parse(req.body);
       const appointment = await storage.createAppointment(validatedData);
       res.status(201).json(appointment);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ error: "Validation failed", details: error.errors });
+        return res.status(400).json({ 
+          error: "Validation failed", 
+          details: error.errors.map(e => ({ field: e.path.join('.'), message: e.message }))
+        });
       }
+      console.error("Error creating appointment:", error);
       res.status(500).json({ error: "Failed to create appointment" });
     }
   });
@@ -82,13 +91,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact routes
   app.post("/api/contact", async (req, res) => {
     try {
+      // Input sanitization
+      if (!req.body || typeof req.body !== 'object') {
+        return res.status(400).json({ error: "Invalid request body" });
+      }
+
       const validatedData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(validatedData);
       res.status(201).json(contact);
     } catch (error) {
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ error: "Validation failed", details: error.errors });
+        return res.status(400).json({ 
+          error: "Validation failed", 
+          details: error.errors.map(e => ({ field: e.path.join('.'), message: e.message }))
+        });
       }
+      console.error("Error creating contact:", error);
       res.status(500).json({ error: "Failed to submit contact form" });
     }
   });

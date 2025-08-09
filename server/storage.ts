@@ -218,7 +218,12 @@ export class MemStorage implements IStorage {
   async createAppointment(insertAppointment: InsertAppointment): Promise<Appointment> {
     const id = randomUUID();
     const appointment: Appointment = { 
-      ...insertAppointment, 
+      ...insertAppointment,
+      address: insertAppointment.address ?? null,
+      totalAmount: insertAppointment.totalAmount ?? null,
+      notes: insertAppointment.notes ?? null,
+      status: insertAppointment.status ?? "pending",
+      paymentStatus: insertAppointment.paymentStatus ?? "pending",
       id,
       createdAt: new Date()
     };
@@ -250,7 +255,14 @@ export class MemStorage implements IStorage {
 
   async createService(insertService: InsertService): Promise<Service> {
     const id = randomUUID();
-    const service: Service = { ...insertService, id };
+    const service: Service = { 
+      ...insertService,
+      basePrice: insertService.basePrice ?? null,
+      duration: insertService.duration ?? null,
+      features: insertService.features ? [...insertService.features] : null,
+      isActive: insertService.isActive ?? true,
+      id 
+    };
     this.services.set(id, service);
     return service;
   }
@@ -267,7 +279,10 @@ export class MemStorage implements IStorage {
   async createTestimonial(insertTestimonial: InsertTestimonial): Promise<Testimonial> {
     const id = randomUUID();
     const testimonial: Testimonial = { 
-      ...insertTestimonial, 
+      ...insertTestimonial,
+      service: insertTestimonial.service ?? null,
+      rating: insertTestimonial.rating ?? null,
+      isVisible: insertTestimonial.isVisible ?? true,
       id,
       createdAt: new Date()
     };
@@ -290,7 +305,16 @@ export class MemStorage implements IStorage {
 
   async createGalleryItem(insertItem: InsertGalleryItem): Promise<GalleryItem> {
     const id = randomUUID();
-    const item: GalleryItem = { ...insertItem, id };
+    const item: GalleryItem = { 
+      ...insertItem,
+      description: insertItem.description ?? null,
+      treatmentType: insertItem.treatmentType ?? null,
+      duration: insertItem.duration ?? null,
+      beforeImage: insertItem.beforeImage ?? null,
+      afterImage: insertItem.afterImage ?? null,
+      isVisible: insertItem.isVisible ?? true,
+      id 
+    };
     this.galleryItems.set(id, item);
     return item;
   }
@@ -303,7 +327,8 @@ export class MemStorage implements IStorage {
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = randomUUID();
     const contact: Contact = { 
-      ...insertContact, 
+      ...insertContact,
+      status: insertContact.status ?? "new",
       id,
       createdAt: new Date()
     };

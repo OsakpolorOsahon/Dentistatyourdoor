@@ -50,8 +50,11 @@ export default function SmileGallery({ items, isPreview = false }: SmileGalleryP
                 {item.beforeImage ? (
                   <img 
                     src={item.beforeImage} 
-                    alt={`${item.title} transformation`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                    alt={`${item.title} before dental treatment transformation`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    data-testid={`img-gallery-before-${item.id}`}
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-medical-blue to-medical-teal flex items-center justify-center">
@@ -99,19 +102,32 @@ export default function SmileGallery({ items, isPreview = false }: SmileGalleryP
 
       {/* Modal for detailed view */}
       {selectedItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+          onClick={(e) => e.target === e.currentTarget && setSelectedItem(null)}
+        >
           <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-2xl font-montserrat font-bold text-medical-blue">
+                <h2 
+                  id="modal-title"
+                  className="text-2xl font-montserrat font-bold text-medical-blue"
+                >
                   {selectedItem.title}
                 </h2>
                 <Button
                   variant="ghost"
                   onClick={() => setSelectedItem(null)}
                   className="text-gray-500 hover:text-gray-700"
+                  aria-label="Close modal"
+                  data-testid="button-close-modal"
                 >
-                  <i className="fas fa-times text-xl"></i>
+                  <i className="fas fa-times text-xl" aria-hidden="true"></i>
+                  <span className="sr-only">Close</span>
                 </Button>
               </div>
               
@@ -121,8 +137,11 @@ export default function SmileGallery({ items, isPreview = false }: SmileGalleryP
                     <h3 className="font-semibold text-gray-700 mb-2">Before</h3>
                     <img 
                       src={selectedItem.beforeImage} 
-                      alt={`${selectedItem.title} before`}
-                      className="w-full h-64 object-cover rounded-lg" 
+                      alt={`${selectedItem.title} before dental treatment`}
+                      className="w-full h-64 object-cover rounded-lg"
+                      loading="lazy"
+                      decoding="async"
+                      data-testid="img-modal-before"
                     />
                   </div>
                 )}
@@ -131,8 +150,11 @@ export default function SmileGallery({ items, isPreview = false }: SmileGalleryP
                     <h3 className="font-semibold text-gray-700 mb-2">After</h3>
                     <img 
                       src={selectedItem.afterImage} 
-                      alt={`${selectedItem.title} after`}
-                      className="w-full h-64 object-cover rounded-lg" 
+                      alt={`${selectedItem.title} after dental treatment - completed transformation`}
+                      className="w-full h-64 object-cover rounded-lg"
+                      loading="lazy"
+                      decoding="async" 
+                      data-testid="img-modal-after"
                     />
                   </div>
                 )}

@@ -35,6 +35,9 @@ export default function Header() {
                   src={logoPath} 
                   alt="Dentist At Your Door Logo" 
                   className="h-8 lg:h-12 w-auto"
+                  loading="eager"
+                  decoding="async"
+                  data-testid="img-logo"
                 />
                 <h1 className="text-lg lg:text-2xl font-montserrat font-bold text-medical-blue">
                   Dentist<span className="text-medical-teal">@</span>YourDoor
@@ -70,8 +73,14 @@ export default function Header() {
           <div className="flex items-center">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" className="lg:hidden text-medical-gray hover:text-medical-blue">
-                  <i className="fas fa-bars text-xl"></i>
+                <Button 
+                  variant="ghost" 
+                  className="lg:hidden text-medical-gray hover:text-medical-blue"
+                  aria-label="Open navigation menu"
+                  data-testid="button-mobile-menu"
+                >
+                  <i className="fas fa-bars text-xl" aria-hidden="true"></i>
+                  <span className="sr-only">Open navigation menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white">

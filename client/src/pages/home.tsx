@@ -171,6 +171,9 @@ export default function Home() {
                 src="https://pixabay.com/get/g6a2980461caf3ffb50bb12b957c25980fbf4c66fa7753a4239cc7a7cb2cbf1004b9fcadbea3c95c142ecd84e0f6544e11539e9fdfaa2b81f1e7b37d08d607d01_1280.jpg" 
                 alt="Mobile dental clinic van providing doorstep dental care" 
                 className="rounded-2xl shadow-2xl w-full" 
+                loading="lazy"
+                decoding="async"
+                data-testid="img-hero-mobile-clinic"
               />
               
               {/* Floating Service Cards */}
